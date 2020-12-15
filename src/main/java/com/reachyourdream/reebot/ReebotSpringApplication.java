@@ -18,7 +18,6 @@ public class ReebotSpringApplication {
 
     private static void InitBot(){
         String token = System.getenv("BOT_TOKEN");
-//        token = "Nzg4MDkxMDI4MjU0ODgzODUx.X9ec9w.RffRoyuS-Tw3IgMsnhXRV6voRDk";
         try{
             JDABuilder.createLight(token)
                     .addEventListeners(new CoinFlipListener())
