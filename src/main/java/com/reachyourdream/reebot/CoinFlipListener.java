@@ -16,11 +16,12 @@ public class CoinFlipListener extends ListenerAdapter {
         Message message = event.getMessage();
         User author = message.getAuthor();
         String messageContent = message.getContentDisplay();
+        MessageChannel messageChannel = event.getChannel();
+
         if(author.isBot())
             return;
 
         if(messageContent.equals("!coinflip")){
-            MessageChannel messageChannel = event.getChannel();
             Random rand = new Random();
             int randomNumber = rand.nextInt(2);
             if(randomNumber==1){
@@ -29,5 +30,28 @@ public class CoinFlipListener extends ListenerAdapter {
                 messageChannel.sendMessage("Tail").queue();
             }
         }
+        if(messageContent.length()>5){
+            if(messageContent.substring(0,5).equals("!pick")){
+                if(messageContent.charAt(6)=='[' && messageContent.charAt(messageContent.length()-1)== ']'){
+                    String optionsString = messageContent.substring(6);
+                    String optionsStringNoBrackets = optionsString.replace("[", "")
+                            .replace("]","");
+                    String options[] = optionsStringNoBrackets.split(",");
+                    if(options.length<2){
+                        String  errorMessage = "Pilihan minimal 2";
+                        messageChannel.sendMessage(errorMessage).queue();
+                    } else{
+                        Random rand = new Random();
+                        int randomNumber = rand.nextInt(options.length);
+                        messageChannel.sendMessage(options[randomNumber]).queue();
+                    }
+                } else{
+                    String errorMessage = "Template salah.\n Template yang benar:\n " +
+                            "```!pick [opsi1, opsi2, opsi3, opsi...]```";
+                    messageChannel.sendMessage(errorMessage).queue();
+                }
+            }
+        }
+
     }
 }
