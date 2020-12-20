@@ -1,5 +1,8 @@
 package com.reachyourdream.reebot;
 
+import commands.CoinFlip;
+import commands.Pick;
+import net.dv8tion.jda.api.AccountType;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
 import net.dv8tion.jda.api.OnlineStatus;
@@ -10,6 +13,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
 public class ReebotSpringApplication {
+    public static String prefix = "?";
 
     public static void main(String[] args) {
         SpringApplication.run(ReebotSpringApplication.class, args);
@@ -20,7 +24,8 @@ public class ReebotSpringApplication {
         String token = System.getenv("BOT_TOKEN");
         try{
             JDABuilder.createLight(token)
-                    .addEventListeners(new CoinFlipListener())
+                    .addEventListeners(new CoinFlip())
+                    .addEventListeners(new Pick())
                     .setActivity(Activity.listening("to your commands :)"))
                     .setStatus(OnlineStatus.ONLINE)
                     .build();
