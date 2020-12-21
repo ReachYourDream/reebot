@@ -1,6 +1,7 @@
 package com.reachyourdream.reebot;
 
 import commands.CoinFlip;
+import commands.MuteRoles;
 import commands.Pick;
 import net.dv8tion.jda.api.AccountType;
 import net.dv8tion.jda.api.JDA;
@@ -26,6 +27,7 @@ public class ReebotSpringApplication {
             JDABuilder.createLight(token)
                     .addEventListeners(new CoinFlip())
                     .addEventListeners(new Pick())
+                    .addEventListeners(new MuteRoles())
                     .setActivity(Activity.listening("to your commands :)"))
                     .setStatus(OnlineStatus.ONLINE)
                     .build();
