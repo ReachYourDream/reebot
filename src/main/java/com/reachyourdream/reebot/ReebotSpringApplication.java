@@ -1,14 +1,11 @@
 package com.reachyourdream.reebot;
 
-import commands.CoinFlip;
-import commands.MuteRoles;
-import commands.Pick;
-import net.dv8tion.jda.api.AccountType;
-import net.dv8tion.jda.api.JDA;
+import com.reachyourdream.reebot.commands.CoinFlip;
+import com.reachyourdream.reebot.commands.MuteRoles;
+import com.reachyourdream.reebot.commands.Pick;
 import net.dv8tion.jda.api.JDABuilder;
 import net.dv8tion.jda.api.OnlineStatus;
 import net.dv8tion.jda.api.entities.Activity;
-import org.apache.logging.log4j.util.Constants;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -28,7 +25,7 @@ public class ReebotSpringApplication {
                     .addEventListeners(new CoinFlip())
                     .addEventListeners(new Pick())
                     .addEventListeners(new MuteRoles())
-                    .setActivity(Activity.listening("to your commands :)"))
+                    .setActivity(Activity.listening("to your com.reachyourdream.reebot.commands :)"))
                     .setStatus(OnlineStatus.ONLINE)
                     .build();
         } catch (Exception e){

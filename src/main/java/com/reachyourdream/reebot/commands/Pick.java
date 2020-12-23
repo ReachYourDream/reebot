@@ -1,4 +1,4 @@
-package commands;
+package com.reachyourdream.reebot.commands;
 
 import com.reachyourdream.reebot.ReebotSpringApplication;
 import net.dv8tion.jda.api.entities.User;
@@ -18,7 +18,7 @@ public class Pick extends ListenerAdapter {
             return;
 
         if(args[0].equals(ReebotSpringApplication.prefix + "pick")){
-            if(args.length < 2){ //handle commands formatting
+            if(args.length < 2){ //handle com.reachyourdream.reebot.commands formatting
                 String errorMessage = "Template salah.\n Template yang benar:\n " +
                         "```" + ReebotSpringApplication.prefix + "pick opsi1 opsi2 opsi3 opsi...```";
                 event.getMessage().getChannel().sendMessage(errorMessage).queue();

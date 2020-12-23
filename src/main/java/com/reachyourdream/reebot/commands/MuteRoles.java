@@ -1,4 +1,4 @@
-package commands;
+package com.reachyourdream.reebot.commands;
 
 import com.reachyourdream.reebot.ReebotSpringApplication;
 import net.dv8tion.jda.api.entities.User;
