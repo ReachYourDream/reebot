@@ -25,7 +25,7 @@ public class ReebotSpringApplication {
                     .addEventListeners(new CoinFlip())
                     .addEventListeners(new Pick())
                     .addEventListeners(new MuteRoles())
-                    .setActivity(Activity.listening("to your com.reachyourdream.reebot.commands :)"))
+                    .setActivity(Activity.listening("to your Commands :)"))
                     .setStatus(OnlineStatus.ONLINE)
                     .build();
         } catch (Exception e){
